@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  Cool Demo
 //
 //  Created by Jonathan Lott on 4/25/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainViewController : UIViewController
+@property (nonatomic) int completedCount;
 
 @end
 
