@@ -30,7 +30,7 @@
 
 - (void)loadVideoWithURL:(NSURL*)url delay:(float)delay completion:(void(^)())completion
 {
-    self.showsPlaybackControls = NO;
+   // self.showsPlaybackControls = NO;
 
     [self performBlockOfCode:^{
         AVURLAsset* asset = [AVURLAsset assetWithURL:url];

@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.30588235289999999" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.10756787657737732" green="0.72303873300552368" blue="0.45727047324180603" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="progressLabel" destination="4MA-m2-f8q" id="ujl-PB-XYW"/>
@@ -83,7 +83,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.270588249" green="0.90196084980000002" blue="0.270588249" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
                         <outlet property="progressLabel" destination="7cC-m8-zkY" id="lor-L3-mUw"/>
