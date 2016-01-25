@@ -33,7 +33,7 @@ class DemoPlayerViewControllerSwift : AVPlayerViewController {
         }, afterDelay: 1.0)
 
         self.performBlockOfCode({ () -> Void in
-            if let asset: AVAsset = AVURLAsset.assetWithURL(url) as? AVAsset {
+            if let asset: AVAsset = AVURLAsset(URL: url) as? AVAsset {
                 let playerItem = AVPlayerItem(asset: asset)
                 let player = AVPlayer(playerItem: playerItem)
                 player.volume = 0.0

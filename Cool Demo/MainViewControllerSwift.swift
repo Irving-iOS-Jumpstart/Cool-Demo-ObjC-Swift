@@ -14,7 +14,7 @@ extension String {
     func urlValue() -> NSURL? {
         var url: NSURL?
 
-        if count(self) > 0 {
+        if self.characters.count > 0 {
             url = NSURL(string: self)
 
             if url == nil {
@@ -26,8 +26,8 @@ extension String {
 
     func pathInBundle() -> String? {
         var fullPath: String?
-        if count(self) > 0  {
-            fullPath = NSBundle.mainBundle().pathForResource(self.stringByDeletingPathExtension, ofType: self.pathExtension) ?? nil
+        if self.characters.count > 0  {
+            fullPath = NSBundle.mainBundle().pathForResource((self as NSString).stringByDeletingPathExtension, ofType: (self as NSString).pathExtension) ?? nil
         }
         return fullPath
     }
@@ -72,7 +72,7 @@ class MainViewControllerSwift: UIViewController {
     func setupVideos() {
         self.cleanupVideos()
         let filePaths = [kVideoURL, kVideoURL, kVideoURL, kVideoURL]
-        for (idx, filePath) in enumerate(filePaths) {
+        for (idx, filePath) in filePaths.enumerate() {
             let fullPath = filePath.pathInBundle() ?? filePath
             let playerVC = DemoPlayerViewControllerSwift()
             self.videoPlayers.append(playerVC)
@@ -80,13 +80,13 @@ class MainViewControllerSwift: UIViewController {
                 playerVC.loadVideoWithURL(url, delay: NSTimeInterval(idx * 2), completion: { () -> Void in
                     self.completedCount++
                     self.videoSetupCompleted(playerVC)
-                    playerVC.player.play()
+                    playerVC.player?.play()
                 })
             }
         }
 
          //start with players outside of bounds and then animate them in on did appear
-        for (idx, playerVC) in enumerate(self.videoPlayers) {
+        for (idx, playerVC) in self.videoPlayers.enumerate() {
             let width: CGFloat = self.view.frame.size.width / 2.0
             let height: CGFloat = CGFloat(width * 3.0/4.0)
             let offset: CGFloat = CGFloat(idx / 2)
@@ -100,7 +100,7 @@ class MainViewControllerSwift: UIViewController {
     }
 
     func updateProgressView() {
-        var progress: Float = self.videoPlayers.count > 0 ? Float(self.completedCount) / Float(self.videoPlayers.count) : 0.0
+        let progress: Float = self.videoPlayers.count > 0 ? Float(self.completedCount) / Float(self.videoPlayers.count) : 0.0
         self.progressView.progress = progress
         self.progressLabel.text = String(format:"%.0f%%", progress * 100.0)
     }
@@ -111,7 +111,7 @@ class MainViewControllerSwift: UIViewController {
 
 
     func animateVideos() {
-        for (idx, playerVC) in enumerate(self.videoPlayers) {
+        for (idx, playerVC) in self.videoPlayers.enumerate() {
             let width: CGFloat = self.view.frame.size.width / 2.0
             let height: CGFloat  = CGFloat(width * 3.0/4.0)
             let offsetY: CGFloat  = CGFloat(idx % 2)
